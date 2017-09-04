@@ -1,0 +1,9 @@
+/node_modules
+/coverage
+/build
+
+.DS_Store
+npm-debug.log
+.idea
+.vscode
+yarn.lock
