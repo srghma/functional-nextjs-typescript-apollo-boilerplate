@@ -22,6 +22,8 @@
 <br />
 
 # React-Hipstaplate
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/BjornMelgaard/my-nextjs-typescript-boilerplate.svg)](https://greenkeeper.io/)
 A ReactJS full-stack boilerplate based on `typescript` with `ssr`, custom `apollo-server` and huge stack of modern utilities which will help you to start your own project in one command line.
 
 ## Installation
