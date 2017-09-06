@@ -1,4 +1,4 @@
-import { Context, Page } from './types'
+import { Context, Page } from '~/types'
 
 export async function loadGetInitialProps<P>(
   Component: Page<P>,

@@ -1,21 +1,15 @@
-import * as React from 'react'
-import styled from 'styled-components'
+import { compose } from 'recompose'
 
-const Image = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
+import PostList from '~/containers/PostList'
+// import withData from '~/hoc/withData'
+import { colorMap } from '~/theming'
+import themed from '~/hoc/themed'
+import { Page } from '~/types'
 
-  & img {
-    max-height: 200px;
-  }
-`
+const enhance = compose(themed(colorMap))
+const Module: Page = props => {
+  console.log(props)
+  return <PostList {...props} />
+}
 
-export default (): JSX.Element => (
-  <div>
-    <h1>Hello!</h1>
-    <Image>
-      <img src="/static/pueue.png" alt="hipsta" />
-    </Image>
-  </div>
-)
+export default enhance(Module)

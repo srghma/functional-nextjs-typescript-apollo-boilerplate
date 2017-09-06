@@ -25,6 +25,20 @@
       "parameter":            "nospace",
       "property-declaration": "nospace",
       "variable-declaration": "nospace"
-    }]
+    }],
+    // fix warning
+    "no-unused-variable": false,
+
+    // tslint-immutable rules
+    // "no-var-keyword": true,
+    // "typedef": [true, "call-signature"],
+    // "readonly-keyword": true,
+    // "readonly-array": true,
+    // "no-let": true,
+    // "no-object-mutation": true,
+    // "no-this": true,
+    // "no-class": true,
+    // "no-mixed-interface": true,
+    // "no-expression-statement": true
   }
 }

@@ -1,5 +1,4 @@
 declare namespace NodeJS {
-  // tslint:disable-line no-namespace
   interface Global {
     fetch: typeof fetch
     [x: string]: any
@@ -9,6 +8,3 @@ declare namespace NodeJS {
     browser?: boolean
   }
 }
-
-// declare const process: any
-// declare const global: any

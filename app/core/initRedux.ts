@@ -5,7 +5,7 @@ import { ApolloClient } from 'react-apollo'
 import { getReducer, RootState } from './getReducer'
 
 export type ReduxStore = Store<RootState | {}>
-export type InitialState = object | undefined
+export type InitialState = object
 let reduxStore: ReduxStore | null = null
 
 function create(apollo: ApolloClient, initialState?: InitialState): ReduxStore {

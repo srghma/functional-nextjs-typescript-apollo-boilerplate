@@ -4,26 +4,18 @@ import { ApolloProvider } from 'react-apollo'
 import { wrapDisplayName } from 'recompose'
 import { pick } from 'ramda'
 
-import { initApollo } from './initApollo'
-import { initRedux, InitialState } from './initRedux'
-import {
-  loadApolloData,
-  loadGetInitialProps,
-  responceFinished,
-  Context,
-  Page,
-  Query,
-} from './shared'
+import { initApollo, initRedux, InitialState } from '~/core'
+import { Context, Page } from '~/types'
 
-type Url = { query?: Query; pathname: string }
-type ComponentProp = { url?: Url }
-type ComponentType = Page<ComponentProp>
+import { loadApolloData } from './loadApolloData'
+import { loadGetInitialProps } from './loadGetInitialProps'
+import { responceFinished } from './responceFinished'
 
-type WrappedComponentProps = { serverState: InitialState }
-type WrappedComponent = Page<WrappedComponentProps>
+type WrappedProps = { serverState: InitialState }
+type WrappedType = Page<WrappedProps>
 
-export default function withData(Component: ComponentType): WrappedComponent {
-  const Wrapped: WrappedComponent = ({ serverState, ...props }) => {
+export default function withData(Component: Page): WrappedType {
+  const Wrapped: WrappedType = ({ serverState, ...props }) => {
     const apollo = initApollo()
     const redux = initRedux(apollo, serverState)
 
@@ -39,7 +31,7 @@ export default function withData(Component: ComponentType): WrappedComponent {
   Wrapped.displayName = wrapDisplayName(Component, 'WithData')
 
   Wrapped.getInitialProps = async (ctx: Context) => {
-    let serverState: InitialState
+    let serverState: InitialState | null = null
 
     // Evaluate the composed component's getInitialProps()
     const composedInitialProps = loadGetInitialProps(Component, ctx)
@@ -52,7 +44,7 @@ export default function withData(Component: ComponentType): WrappedComponent {
       const redux = initRedux(apollo)
 
       // Provide the `url` prop data in case a GraphQL query uses it
-      const url: Url = pick(['query', 'pathname'], ctx)
+      const url = pick(['query', 'pathname'], ctx)
       const content = <Component url={url} {...composedInitialProps} />
       const apolloData = await loadApolloData(content, apollo, redux)
       Head.rewind()

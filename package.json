@@ -18,9 +18,9 @@
     "dev:next": "node server/index.js",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "precommit": "yarn run format && git add --all && yarn run lint",
-    "lint": "tslint --type-check -c tslint.json -p tsconfig.json '{app,pages}/*.{ts,tsx}'",
+    "lint": "tslint --type-check -c tslint.json -p tsconfig.json '{app,global_typings}/**/*.{ts,tsx}'",
     "format:base": "prettier --write --no-semi --single-quote --trailing-comma es5",
-    "format:ts": "yarn run format:base --  --parser typescript '{app,pages}/**/*.{ts,tsx}'",
+    "format:ts": "yarn run format:base --  --parser typescript '{app,global_typings}/**/*.{ts,tsx}'",
     "format:js": "yarn run format:base -- '{server}/**/*.js' '*.js'",
     "format": "yarn run format:ts && yarn run format:js"
   },
