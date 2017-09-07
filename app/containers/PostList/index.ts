@@ -8,6 +8,7 @@ import allPostsGql from './allPosts.gql'
 
 const POSTS_PER_PAGE = 10
 
+// NOTE: waiting for https://github.com/apollographql/react-apollo/pull/997
 const withData = graphql<allPostsQuery, {}, PresentationProps>(allPostsGql, {
   options: () => {
     const variables: allPostsQueryVariables = {

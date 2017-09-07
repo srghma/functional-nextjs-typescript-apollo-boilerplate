@@ -6,7 +6,7 @@
     "jsx": "react-native",
     "strict": true,
     "allowJs": true,
-    // "sourceMap": true, // cause sourceMap is useless anywhere
+    // "sourceMap": true, // because sourceMap is useless anyway
     "outDir": "./build",
     "baseUrl": ".",
     "paths": {

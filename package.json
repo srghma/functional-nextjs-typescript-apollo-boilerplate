@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:ts\" \"yarn dev:next\"",
-    "dev:ts": "tsc --watch",
+    "dev:ts": "webpack --watch",
     "dev:next": "node server/index.js",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "precommit": "yarn run format && git add --all && yarn run lint",
@@ -57,6 +57,7 @@
     "@types/react-redux": "^5.0.6",
     "@types/recompose": "^0.24.1",
     "apollo-codegen": "^0.16.5",
+    "awesome-typescript-loader": "^3.2.3",
     "babel-jest": "^21.0.0",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-styled-components": "^1.2.0",
