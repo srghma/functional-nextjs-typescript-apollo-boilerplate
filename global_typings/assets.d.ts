@@ -1,5 +1,6 @@
 // graphql
 declare module '*.gql'
+declare module '*.graphql'
 
 // images
 declare module '*.svg'

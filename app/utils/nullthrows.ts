@@ -4,9 +4,8 @@
 
 export function nullthrows<T>(x: T | undefined | null): T {
   if (x === null || x === undefined) {
-    throw new Error("Got unexpected null or undefined")
+    throw new Error('Got unexpected null or undefined')
   } else {
     return x
   }
 }
-

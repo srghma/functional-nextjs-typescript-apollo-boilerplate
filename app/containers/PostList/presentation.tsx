@@ -1,19 +1,19 @@
 import * as React from 'react'
 // import { Link } from '~/routes'
 
-type Post = {
-  id: number
+interface Post {
+  id: string
   title: string
 }
 
-type PostListProps = {
+export interface PresentationProps {
   allPosts: Post[]
   loading: boolean
   allPostsCount?: number
   loadMorePosts?: boolean
 }
 
-const PostList: React.StatelessComponent<PostListProps> = ({
+export const Presentation: React.StatelessComponent<PresentationProps> = ({
   allPosts,
   loading,
 }) => {
@@ -24,16 +24,13 @@ const PostList: React.StatelessComponent<PostListProps> = ({
   } else {
     return (
       <div>
-      {
-        allPosts.map((post, index) =>
+        {allPosts.map((post, index) => (
           <p>
             {index}, {post.title}
           </p>
-        )
-      }
+        ))}
       </div>
     )
   }
 }
 
-export default PostList

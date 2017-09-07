@@ -3,9 +3,9 @@ import Head from 'next/head'
 import { ApolloProvider } from 'react-apollo'
 import { wrapDisplayName } from 'recompose'
 import { pick } from 'ramda'
+import { Page } from 'next-extensions'
 
 import { initApollo, initRedux, InitialState } from '~/core'
-import { Context, Page } from '~/types'
 
 import { loadApolloData } from './loadApolloData'
 import { loadGetInitialProps } from './loadGetInitialProps'
@@ -30,7 +30,7 @@ export default function withData(Component: Page): WrappedType {
 
   Wrapped.displayName = wrapDisplayName(Component, 'WithData')
 
-  Wrapped.getInitialProps = async (ctx: Context) => {
+  Wrapped.getInitialProps = async ctx => {
     let serverState: InitialState | null = null
 
     // Evaluate the composed component's getInitialProps()
