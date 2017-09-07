@@ -1,4 +1,4 @@
-import { Context } from '~/types'
+import { Context } from 'next-extensions'
 import { pathOr } from 'ramda'
 
 // check whether during getInitialProps occured redirect or something like that

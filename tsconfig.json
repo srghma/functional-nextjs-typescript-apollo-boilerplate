@@ -6,14 +6,14 @@
     "jsx": "react-native",
     "strict": true,
     "allowJs": true,
-    "sourceMap": true,
+    // "sourceMap": true, // cause sourceMap is useless anywhere
     "outDir": "./build",
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"]
     },
     "lib": ["es2017", "dom", "esnext"],
-    "pretty": true,
+    "noEmitOnError": true,
 
     /* Additional Checks */
     "noUnusedLocals": true,             /* Report errors on unused locals. */

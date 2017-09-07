@@ -22,7 +22,11 @@
     "format:base": "prettier --write --no-semi --single-quote --trailing-comma es5",
     "format:ts": "yarn run format:base --  --parser typescript '{app,global_typings}/**/*.{ts,tsx}'",
     "format:js": "yarn run format:base -- '{server}/**/*.js' '*.js'",
-    "format": "yarn run format:ts && yarn run format:js"
+    "format": "yarn run format:ts && yarn run format:js",
+    "graphql:update_schema": "graphql get-schema",
+    "graphql:update_types": "apollo-codegen generate **/*.gql --schema schema.json --target typescript --output app/schema.ts",
+    "graphql:play": "graphql playground",
+    "graphql:see_graph": "graphql voyager"
   },
   "dependencies": {
     "babel-plugin-inline-import-graphql-ast": "^2.0.0",
@@ -52,6 +56,7 @@
     "@types/react": "^16.0.5",
     "@types/react-redux": "^5.0.6",
     "@types/recompose": "^0.24.1",
+    "apollo-codegen": "^0.16.5",
     "babel-jest": "^21.0.0",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-styled-components": "^1.2.0",
@@ -63,6 +68,8 @@
     "enzyme": "^2.9.1",
     "express": "^4.15.4",
     "file-loader": "^0.11.2",
+    "graphql-cli": "^1.0.1",
+    "graphql-cli-voyager": "^0.1.2",
     "husky": "^0.14.3",
     "image-webpack-loader": "^3.4.1",
     "jest": "^21.0.1",
