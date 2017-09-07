@@ -26,10 +26,11 @@
       "property-declaration": "nospace",
       "variable-declaration": "nospace"
     }],
+
     // fix warning
     "no-unused-variable": false,
 
-    // tslint-immutable rules
+    // tslint-immutable rules, TODO
     // "no-var-keyword": true,
     // "typedef": [true, "call-signature"],
     // "readonly-keyword": true,
