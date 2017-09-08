@@ -1,35 +1,35 @@
 import * as React from 'react'
 // import { Link } from '~/routes'
+import { Loading, Main } from './styles'
 
 interface Post {
-  id: string
+  id:    string
   title: string
 }
 
-export interface PresentationProps {
-  allPosts: Post[]
-  loading: boolean
+export interface PostListProps {
+  allPosts:       Post[]
+  loading:        boolean
   allPostsCount?: number
-  loadMorePosts?: boolean
 }
 
-export const Presentation: React.StatelessComponent<PresentationProps> = ({
+export const PostList: React.StatelessComponent<PostListProps> = ({
   allPosts,
   loading,
 }) => {
   if (loading) {
-    return <p>Loading</p>
+    return <Loading>Loading</Loading>
   } else if (allPosts.length === 0) {
     return <p>no posts yet</p>
   } else {
     return (
-      <div>
+      <Main>
         {allPosts.map((post, index) => (
-          <p>
+          <p key={index}>
             {index}, {post.title}
           </p>
         ))}
-      </div>
+      </Main>
     )
   }
 }

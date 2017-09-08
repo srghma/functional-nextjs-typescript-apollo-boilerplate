@@ -13,7 +13,7 @@
   "author": "Vitali Shalak",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:ts\" \"yarn dev:next\"",
+    "dev": "rm -rfd build && cross-env NODE_ENV=development concurrently \"yarn dev:ts\" \"sleep 2 && yarn dev:next\"",
     "dev:ts": "tsc --watch",
     "dev:next": "node server/index.js",
     "test": "cross-env NODE_ENV=test jest --coverage",

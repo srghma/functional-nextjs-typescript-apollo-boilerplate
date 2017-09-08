@@ -23,10 +23,13 @@ declare module 'next-extensions' {
   namespace nextExt {
     // context
     interface Context {
-      req: http.IncomingMessage
-      res: http.ServerResponse
-      pathname: string
-      query?: Query
+      pathname:     string
+      query?:       Query
+      asPath:       string
+      err?:         Error
+      req?:         http.IncomingMessage // server only
+      res?:         http.ServerResponse  // server only
+      jsonPageRes?: Response // client only
     }
 
     // page

@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { ThemeColorMap } from '~/theming'
 
 // prettier-ignore
-const themed =
+export const withThemeProvider =
   (colorMap: ThemeColorMap) =>
   // NOTE: why <P extends {}> here https://github.com/Microsoft/TypeScript/issues/4922
   <P extends {}>(BaseComponent: React.ComponentType<P>) =>
@@ -13,4 +13,3 @@ const themed =
   </ThemeProvider>
 )
 
-export default themed

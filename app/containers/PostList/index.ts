@@ -3,12 +3,12 @@ import { graphql } from 'react-apollo'
 import { allPostsQuery, allPostsQueryVariables } from '~/schema'
 import { nullthrows } from '~/utils'
 
-import { Presentation, PresentationProps } from './presentation'
+import { PostList, PostListProps } from './presentation'
 import allPostsGql from './allPosts.gql'
 
 const POSTS_PER_PAGE = 10
 
-const withData = graphql<allPostsQuery, {}, PresentationProps>(allPostsGql, {
+const withData = graphql<allPostsQuery, {}, PostListProps>(allPostsGql, {
   options: () => {
     const variables: allPostsQueryVariables = {
       skip: 0,
@@ -18,9 +18,9 @@ const withData = graphql<allPostsQuery, {}, PresentationProps>(allPostsGql, {
   },
   props: ({ data }) => {
     data = nullthrows(data)
-    const props: PresentationProps = data
+    const props: PostListProps = data
     return props
   },
 })
 
-export default withData(Presentation)
+export default withData(PostList)

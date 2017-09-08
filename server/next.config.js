@@ -1,21 +1,20 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const paths = require('./server/paths')
+const paths = require('./paths')
 
 module.exports = {
   webpack: config => {
-    // Copy assets to build directory
-    const pattern = {
-      context: paths.appPath,
-      from: `**/*.gql`,
-      to: paths.buildPath,
-    }
+    // Copy component relative assets to build directory saving their paths
+    const assets_ext = ['gql', 'png']
+    const patterns = assets_ext.map(function (ext) {
+      return {
+        context: paths.appPath,
+        from: `**/*.${ext}`,
+        to: paths.buildPath,
+      }
+    })
     config.plugins.push(
-      new CopyWebpackPlugin([
-        pattern
-      ], {
-        debug: 'info'
-      })
+      new CopyWebpackPlugin(patterns, { debug: 'info' })
     )
 
     // Image task to use images in component directory
