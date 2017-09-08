@@ -23,18 +23,17 @@ declare module 'next-extensions' {
   namespace nextExt {
     // context
     interface Context {
-      pathname:     string
-      query?:       Query
-      asPath:       string
-      err?:         Error
-      req?:         http.IncomingMessage // server only
-      res?:         http.ServerResponse  // server only
+      pathname: string
+      query?: Query
+      asPath: string
+      err?: Error
+      req?: http.IncomingMessage // server only
+      res?: http.ServerResponse // server only
       jsonPageRes?: Response // client only
     }
 
     // page
-    interface Page<P = {}>
-      extends React.StatelessComponent<P & PageProps> {
+    interface Page<P = {}> extends React.StatelessComponent<P & PageProps> {
       getInitialProps?: (ctx: Context) => Promise<object>
     }
   }

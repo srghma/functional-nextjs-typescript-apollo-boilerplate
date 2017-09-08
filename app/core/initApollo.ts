@@ -1,7 +1,9 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
 
 // Polyfill fetch() on the server (used by apollo-client)
-if (!process.browser) { global.fetch = require('isomorphic-fetch') }
+if (!process.browser) {
+  global.fetch = require('isomorphic-fetch')
+}
 
 let apolloClient: ApolloClient | null = null
 

@@ -3,13 +3,13 @@ import * as React from 'react'
 import { Loading, Main } from './styles'
 
 interface Post {
-  id:    string
+  id: string
   title: string
 }
 
 export interface PostListProps {
-  allPosts:       Post[]
-  loading:        boolean
+  allPosts: Post[]
+  loading: boolean
   allPostsCount?: number
 }
 
@@ -33,4 +33,3 @@ export const PostList: React.StatelessComponent<PostListProps> = ({
     )
   }
 }
-

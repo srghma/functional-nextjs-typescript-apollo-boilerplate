@@ -12,4 +12,3 @@ export const withThemeProvider =
     <BaseComponent {...props} />
   </ThemeProvider>
 )
-

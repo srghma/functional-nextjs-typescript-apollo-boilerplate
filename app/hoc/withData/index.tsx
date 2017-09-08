@@ -6,6 +6,7 @@ import { pick } from 'ramda'
 import { Page } from 'next-extensions'
 
 import { initApollo, initRedux, InitialState } from '~/core'
+import { invariant } from '~/utils'
 
 import { loadApolloData } from './loadApolloData'
 import { loadGetInitialProps } from './loadGetInitialProps'
@@ -14,11 +15,13 @@ import { responceFinished } from './responceFinished'
 type WrappedType = Page<{ serverState: InitialState }>
 
 export function withData(Component: Page): WrappedType {
-  console.log('withData')
   const Wrapped: WrappedType = ({ serverState, ...props }) => {
-    if (!serverState) {
-      console.log(`serverState is ${serverState}, it means you applied withData wrongly, assure that withData is the outermost wrapper for your Page`)
-    }
+    invariant(
+      serverState,
+      `serverState is ${serverState},
+        probably getInitialProps wasn't executed,
+        assure that withData is the outermost wrapper for your Page`
+    )
 
     const apollo = initApollo()
     const redux = initRedux(apollo, serverState)
@@ -35,14 +38,16 @@ export function withData(Component: Page): WrappedType {
   Wrapped.displayName = wrapDisplayName(Component, 'WithData')
 
   Wrapped.getInitialProps = async ctx => {
-    console.log('withData getInitialProps')
+    console.log(`getInitialProps, browser=${process.browser}`)
     let serverState: InitialState | null = null
 
     // Evaluate the composed component's getInitialProps()
     const composedInitialProps = loadGetInitialProps(Component, ctx)
 
     if (responceFinished(ctx)) {
-      console.log(`response was finished in getInitialProps of ${Component.displayName}`)
+      console.log(
+        `response was finished in getInitialProps of ${Component.displayName}`
+      )
       return {}
     }
 
@@ -68,6 +73,7 @@ export function withData(Component: Page): WrappedType {
       }
     }
 
+    console.log(`getInitialProps, serverState=${serverState}`)
     return {
       serverState,
       ...composedInitialProps,

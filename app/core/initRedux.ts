@@ -1,19 +1,31 @@
-import { createStore, applyMiddleware, Store } from 'redux'
+import {
+  createStore,
+  applyMiddleware,
+  Store,
+  Reducer,
+  combineReducers,
+} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { ApolloClient } from 'react-apollo'
+import { reducers, RootState } from '~/modules'
 
-import { getReducer, RootState } from './getReducer'
-
-export type ReduxStore = Store<RootState | {}>
+type RootStateWithApollo = RootState & { apollo: object }
+type ReduxStore = Store<RootStateWithApollo | {}>
+type RootReducer = Reducer<RootStateWithApollo>
 export type InitialState = object
+
 let reduxStore: ReduxStore | null = null
 
-function create(apollo: ApolloClient, initialState?: InitialState): ReduxStore {
+function create(apollo: ApolloClient, initialState: InitialState): ReduxStore {
+  const rootReducer: RootReducer = combineReducers({
+    ...reducers,
+    apollo: apollo.reducer(),
+  })
   const middlewares = [apollo.middleware()]
 
   const store = createStore(
-    getReducer(apollo),
-    initialState || {},
+    rootReducer,
+    initialState,
     composeWithDevTools(applyMiddleware(...middlewares))
   )
 
@@ -22,10 +34,10 @@ function create(apollo: ApolloClient, initialState?: InitialState): ReduxStore {
 
 export function initRedux(
   apollo: ApolloClient,
-  initialState?: InitialState
+  initialState: InitialState = {}
 ): ReduxStore {
   if (!process.browser) {
-    return create(apollo)
+    return create(apollo, initialState)
   }
 
   // Reuse store on the client-side
