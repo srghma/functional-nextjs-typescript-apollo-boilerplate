@@ -15,7 +15,7 @@ const paths = require('./paths')
 app.prepare()
 .then(() => {
   const server = express()
-  server.use('/static', express.static(paths.inRootDir('static')))
+  server.use('/static', express.static(paths.inBuildDir('static')))
 
   server.get('*', (req, res) => {
     return handle(req, res)
