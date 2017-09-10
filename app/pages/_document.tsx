@@ -4,8 +4,9 @@ import Document, { Head, Main, NextScript } from 'next/document'
 
 import globalStyles from '~/styles/index.sass'
 
+// tslint:disable-next-line:no-class
 export default class MyDocument extends Document {
-  public render() {
+  public render(): JSX.Element {
     const sheet = new ServerStyleSheet()
     const main = sheet.collectStyles(<Main />)
     const styleTags = sheet.getStyleElement()

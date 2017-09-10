@@ -31,18 +31,29 @@
     ],
 
     // fix warning
-    "no-unused-variable": false
+    "no-unused-variable": false,
 
     // tslint-immutable rules, TODO
-    // "no-var-keyword": true,
-    // "typedef": [true, "call-signature"],
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "member-variable-declaration",
+      "object-destructuring",
+      "array-destructuring"
+      // "arrow-call-signature",
+      // "arrow-parameter",
+      // "variable-declaration",
+    ],
     // "readonly-keyword": true,
     // "readonly-array": true,
     // "no-let": true,
     // "no-object-mutation": true,
-    // "no-this": true,
-    // "no-class": true,
+    "no-this": true,
+    "no-class": true,
     // "no-mixed-interface": true,
-    // "no-expression-statement": true
+    // "no-expression-statement": true,
+    "no-var-keyword": true
   }
 }

@@ -2,7 +2,7 @@ export function invariant(
   cond: any,
   message: string,
   informationOrConstructor?: ErrorConstructor | { [key: string]: any }
-) {
+): void | never {
   if (cond) return
 
   if (typeof informationOrConstructor === 'function') {

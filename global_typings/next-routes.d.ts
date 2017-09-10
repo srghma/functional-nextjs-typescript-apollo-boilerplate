@@ -22,7 +22,7 @@ declare module 'next-routes' {
 
     interface Route {
       match(path: string): any
-      valuesToParams(values: string[]): any
+      valuesToParams(values: ReadonlyArray<string>): any
       getHref(params: any): any
       getAs(params: any): any
       getUrls(params: any): any
