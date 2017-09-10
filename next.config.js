@@ -79,9 +79,7 @@ module.exports = {
                 'node_modules'
               ]
                 .map(d => paths.inRootDir(d))
-                .map(x => { console.log(x); return x })
                 .map(g => glob.sync(g))
-                .map(x => { console.log(x); return x })
                 .reduce((a, c) => a.concat(c), []),
             },
           },
