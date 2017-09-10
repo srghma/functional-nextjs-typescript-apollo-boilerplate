@@ -11,6 +11,9 @@
     "inline-import-graphql-ast",
     ["root-import", {
       "rootPathSuffix": "./build"
+    }],
+    ["wrap-in-js", {
+      "extensions": ["css$", "scss$"]
     }]
   ]
 }

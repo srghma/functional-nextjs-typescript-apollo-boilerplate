@@ -1,11 +1,14 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin')
+const glob = require('glob')
 
 const paths = require('./server/paths')
 
 module.exports = {
   webpack: config => {
-    // Copy component relative assets to build directory saving their paths
-    const assets_ext = ['gql', 'png']
+    /************************
+     * Copy assets from /app to /build saving directory structure
+     ************************/
+    const assets_ext = ['gql', 'png', 'ico', 'scss']
     const patterns = assets_ext.map(function(ext) {
       return {
         context: paths.appPath,
@@ -15,7 +18,9 @@ module.exports = {
     })
     config.plugins.push(new CopyWebpackPlugin(patterns, { debug: 'info' }))
 
-    // Image task to use images in component directory
+    /************************
+     * Component relative images in /build
+     ************************/
     config.module.rules.push({
       test: /\.(png|jpe?g|gif)$/i,
       use: [
@@ -59,6 +64,45 @@ module.exports = {
         },
       ],
     })
+
+    /************************
+     * Styles in /build
+     ************************/
+    config.module.rules.push(
+      {
+        test: /\.(css|scss)/,
+        loader: 'emit-file-loader',
+        options: {
+          name: 'dist/[path][name].[ext]',
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['babel-loader', 'raw-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          'babel-loader',
+          'raw-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [
+                'build/styles',
+                'node_modules'
+              ]
+                .map(d => paths.inRootDir(d))
+                .map(x => { console.log(x); return x })
+                .map(g => glob.sync(g))
+                .map(x => { console.log(x); return x })
+                .reduce((a, c) => a.concat(c), []),
+            },
+          },
+        ],
+      }
+    )
 
     return config
   },
