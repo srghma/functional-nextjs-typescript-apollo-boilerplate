@@ -15,19 +15,30 @@
   "scripts": {
     "clean": "rm -rfd build",
     "predev": "yarn run clean",
-    "dev": "cross-env NODE_ENV=development concurrently \"yarn dev:ts\" \"yarn dev:watch_app_assets\" \"sleep 2 && yarn dev:next\"",
+    "dev":
+      "cross-env NODE_ENV=development concurrently \"yarn dev:ts\" \"yarn dev:watch_app_assets\" \"sleep 2 && yarn dev:next\"",
     "dev:ts": "tsc --watch",
-    "dev:next": "node server/index.js",
-    "dev:watch_app_assets": "cpx \"app/**/*.{scss,ico,png,gql}\" build --watch",
+    "dev:next": "node bin/server.js",
+    "dev:watch_app_assets": "yarn run copy_app_assets -- --watch",
+    "copy_app_assets": "cpx \"app/**/*.{sass,scss,ico,png,gql}\" build",
+    "preanalyze":
+      "yarn run clean && tsc && yarn run copy_app_assets && cp next.config.js build",
+    "analyze": "cross-env ANALYZE=1 node bin/server.js",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "precommit": "yarn run format && git add --all && yarn run lint",
-    "lint": "tslint --type-check -c tslint.json -p tsconfig.json '{app,global_typings}/**/*.{ts,tsx}'",
-    "format:base": "prettier --write --no-semi --single-quote --trailing-comma es5",
-    "format:ts": "yarn run format:base --  --parser typescript '{app,global_typings}/**/*.{ts,tsx}'",
+    "lint":
+      "tslint --type-check -c tslint.json -p tsconfig.json '{app,global_typings}/**/*.{ts,tsx}'",
+    "format:base":
+      "prettier --write --no-semi --single-quote --trailing-comma es5",
+    "format":
+      "yarn run format:ts && yarn run format:js && yarn run format:json",
+    "format:ts":
+      "yarn run format:base --  --parser typescript '{app,global_typings}/**/*.{ts,tsx}'",
     "format:js": "yarn run format:base -- '{server}/**/*.js' '*.js'",
-    "format": "yarn run format:ts && yarn run format:js",
+    "format:json": "yarn run format:base -- '{package,tsconfig,tslint}.json'",
     "graphql:update_schema": "graphql get-schema",
-    "graphql:update_types": "apollo-codegen generate **/*.gql --schema schema.json --target typescript --output app/schema.ts",
+    "graphql:update_types":
+      "apollo-codegen generate **/*.gql --schema schema.json --target typescript --output app/schema.ts",
     "graphql:play": "graphql playground",
     "graphql:see_graph": "graphql voyager"
   },
@@ -40,6 +51,8 @@
     "js-cookie": "^2.1.4",
     "next": "^3.2.1",
     "next-routes": "^1.0.40",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
     "react-apollo": "^1.4.15",
@@ -77,6 +90,8 @@
     "glob": "^7.1.2",
     "graphql-cli": "^1.0.1",
     "graphql-cli-voyager": "^0.1.2",
+    "grommet-typescript":
+      "git+https://github.com/jansel369/grommet-typescript.git",
     "husky": "^0.14.3",
     "image-webpack-loader": "^3.4.1",
     "jest": "^21.0.1",
@@ -101,6 +116,7 @@
     "tslint-immutable": "^4.1.0",
     "tslint-react": "^3.2.0",
     "typescript": "^2.5.2",
-    "url-loader": "^0.5.9"
+    "url-loader": "^0.5.9",
+    "webpack-bundle-analyzer": "^2.9.0"
   }
 }

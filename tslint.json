@@ -12,23 +12,26 @@
       true,
       {
         "multiline": {
-          "objects":      "always",
-          "arrays":       "always",
-          "functions":    "never",
+          "objects": "always",
+          "arrays": "always",
+          "functions": "never",
           "typeLiterals": "never"
         }
       }
     ],
-    "typedef-whitespace": [true, {
-      "call-signature":       "nospace",
-      "index-signature":      "nospace",
-      "parameter":            "nospace",
-      "property-declaration": "nospace",
-      "variable-declaration": "nospace"
-    }],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
 
     // fix warning
-    "no-unused-variable": false,
+    "no-unused-variable": false
 
     // tslint-immutable rules, TODO
     // "no-var-keyword": true,

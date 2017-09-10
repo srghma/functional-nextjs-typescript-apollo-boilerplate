@@ -18,8 +18,6 @@ declare module 'next-extensions' {
     url: Url
   }
 
-  export = nextExt
-
   namespace nextExt {
     // context
     interface Context {
@@ -37,4 +35,6 @@ declare module 'next-extensions' {
       getInitialProps?: (ctx: Context) => Promise<object>
     }
   }
+
+  export = nextExt
 }

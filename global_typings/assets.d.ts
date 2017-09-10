@@ -4,8 +4,12 @@ declare module '*.graphql'
 
 // images
 declare module '*.svg'
-declare module '*.scss'
 declare module '*.png'
+
+// styles
+declare module '*.sass'
+declare module '*.scss'
+declare module '*.css'
 
 // json
 declare module '*.json'

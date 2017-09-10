@@ -2,7 +2,7 @@ import * as React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import globalStyles from '~/styles/index.scss'
+import globalStyles from '~/styles/index.sass'
 
 export default class MyDocument extends Document {
   public render() {

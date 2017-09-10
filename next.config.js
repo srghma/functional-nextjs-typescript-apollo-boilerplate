@@ -1,8 +1,20 @@
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const glob = require('glob')
-const paths = require('./server/paths')
+
+const paths = require('./bin/paths')
 
 module.exports = {
   webpack: config => {
+    if (process.env.ANALYZE) {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          analyzerPort: 8888,
+          openAnalyzer: true,
+        })
+      )
+    }
+
     /************************
      * Component relative images in /build
      ************************/
@@ -55,7 +67,7 @@ module.exports = {
      ************************/
     config.module.rules.push(
       {
-        test: /\.(css|scss)/,
+        test: /\.(css|scss|sass)/,
         loader: 'emit-file-loader',
         options: {
           name: 'dist/[path][name].[ext]',
@@ -74,10 +86,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [
-                'build/styles',
-                'node_modules'
-              ]
+              includePaths: ['build/styles', 'node_modules']
                 .map(d => paths.inRootDir(d))
                 .map(g => glob.sync(g))
                 .reduce((a, c) => a.concat(c), []),
@@ -86,6 +95,16 @@ module.exports = {
         ],
       }
     )
+
+    /************************
+     * Using Preact instead of React
+     ************************/
+    // TODO: doesnt work
+    // console.log('> Using Preact instead of React');
+    // config.resolve.alias = {
+    //   react: 'preact-compat',
+    //   'react-dom': 'preact-compat',
+    // };
 
     return config
   },
