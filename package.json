@@ -13,6 +13,8 @@
   "author": "Vitali Shalak",
   "license": "MIT",
   "scripts": {
+    "postinstall":
+      "cd node_modules/react-apollo && yarn install && yarn run prepublish",
     "clean": "rm -rfd build",
     "predev": "yarn run clean",
     "dev":
@@ -55,7 +57,8 @@
     "preact-compat": "^3.17.0",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
-    "react-apollo": "^1.4.15",
+    "react-apollo":
+      "git+https://github.com/TiuSh/react-apollo.git#typescript-mutation-variables-typing",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "recompose": "^0.25.0",
@@ -100,15 +103,15 @@
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "normalize.css": "^7.0.0",
-    "postcss-easy-import": "^2.1.0",
+    "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.0.6",
     "prettier": "^1.6.1",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "^15.6.1",
     "redux-devtools-extension": "^2.13.2",
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
-    "ts-jest": "^20.0.14",
+    "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.5.0",
     "tslint-config-standard": "^6.0.1",
