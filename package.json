@@ -13,8 +13,6 @@
   "author": "Vitali Shalak",
   "license": "MIT",
   "scripts": {
-    "postinstall":
-      "cd node_modules/react-apollo && yarn install && yarn run prepublish",
     "clean": "rm -rfd build",
     "predev": "yarn run clean",
     "dev":
@@ -57,8 +55,7 @@
     "preact-compat": "^3.17.0",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
-    "react-apollo":
-      "git+https://github.com/TiuSh/react-apollo.git#typescript-mutation-variables-typing",
+    "react-apollo": "^1.4.15",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "recompose": "^0.25.0",

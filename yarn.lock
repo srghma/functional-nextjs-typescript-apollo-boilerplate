@@ -6941,9 +6941,9 @@ react-addons-shallow-compare@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-"react-apollo@git+https://github.com/TiuSh/react-apollo.git#typescript-mutation-variables-typing":
+react-apollo@^1.4.15:
   version "1.4.15"
-  resolved "git+https://github.com/TiuSh/react-apollo.git#846e683ce632c096a0c0ea7a6fd0880f403dcee0"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-1.4.15.tgz#3a213d11b847da7db03c4619ac640df734f9c4b5"
   dependencies:
     apollo-client "^1.4.0"
     graphql-tag "^2.0.0"

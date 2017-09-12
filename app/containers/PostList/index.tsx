@@ -1,14 +1,8 @@
 import { graphql } from 'react-apollo'
-import {
-  compose,
-  branch,
-  renderComponent,
-  withProps,
-  lifecycle,
-} from 'recompose'
+import { compose, branch, renderComponent } from 'recompose'
 import Spinning from 'grommet/components/icons/Spinning'
 
-import { allPostsQuery } from '~/schema'
+import { allPostsQuery, allPostsQueryVariables } from '~/schema'
 
 import { PostList } from './presentation'
 import allPostsGql from './allPosts.gql'
