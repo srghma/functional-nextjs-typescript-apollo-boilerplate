@@ -67,7 +67,7 @@ module.exports = {
      ************************/
     config.module.rules.push(
       {
-        test: /\.(css|scss|sass)/,
+        test: /\.(css|less)/,
         loader: 'emit-file-loader',
         options: {
           name: 'dist/[path][name].[ext]',
@@ -78,15 +78,15 @@ module.exports = {
         use: ['babel-loader', 'raw-loader', 'postcss-loader'],
       },
       {
-        test: /\.s(a|c)ss$/,
+        test: /\.less$/,
         use: [
           'babel-loader',
           'raw-loader',
           'postcss-loader',
           {
-            loader: 'sass-loader',
+            loader: 'less-loader',
             options: {
-              includePaths: ['build/styles', 'node_modules']
+              paths: ['build/styles', 'node_modules']
                 .map(d => paths.inRootDir(d))
                 .map(g => glob.sync(g))
                 .reduce((a, c) => a.concat(c), []),

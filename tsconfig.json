@@ -13,7 +13,8 @@
       "~/*": ["./app/*"]
     },
     "lib": ["es2017", "dom", "esnext"],
-    "noEmitOnError": true,
+    // "noEmitOnError": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Additional Checks */
     "noUnusedLocals": true /* Report errors on unused locals. */,

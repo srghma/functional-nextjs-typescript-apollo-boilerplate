@@ -8,6 +8,7 @@ declare module '*.png'
 
 // styles
 declare module '*.sass'
+declare module '*.less'
 declare module '*.scss'
 declare module '*.css'
 
