@@ -6,7 +6,7 @@ import { pick } from 'ramda'
 import { Page } from 'next-extensions'
 
 import { initApollo, initRedux, InitialState } from '~/core'
-import { invariant } from '~/utils'
+import { assertNonNull } from '~/utils/asserters'
 
 import { loadApolloData } from './loadApolloData'
 import { loadGetInitialProps } from './loadGetInitialProps'
@@ -16,7 +16,7 @@ type WrappedType = Page<{ serverState: InitialState }>
 
 export function withData(Component: Page): WrappedType {
   const Wrapped: WrappedType = ({ serverState, ...props }) => {
-    invariant(
+    assertNonNull(
       serverState,
       `serverState is ${serverState},
         probably getInitialProps wasn't executed,

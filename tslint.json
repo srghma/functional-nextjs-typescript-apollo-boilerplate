@@ -39,9 +39,9 @@
       "call-signature",
       "parameter",
       "property-declaration",
-      "member-variable-declaration",
-      "object-destructuring",
-      "array-destructuring"
+      "member-variable-declaration"
+      // "object-destructuring",
+      // "array-destructuring"
       // "arrow-call-signature",
       // "arrow-parameter",
       // "variable-declaration",
@@ -49,7 +49,7 @@
     // "readonly-keyword": true,
     // "readonly-array": true,
     // "no-let": true,
-    // "no-object-mutation": true,
+    "no-object-mutation": true,
     "no-this": true,
     "no-class": true,
     // "no-mixed-interface": true,
