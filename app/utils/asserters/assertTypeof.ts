@@ -1,4 +1,4 @@
-import { throwBeautifulError, Message } from '../throw-beautiful-error'
+import { throwBeautifulError } from '~/utils/throw-beautiful-error'
 
 interface TypeMap {
   string: string
@@ -11,16 +11,17 @@ interface TypeMap {
 }
 
 export function assertTypeof<N extends keyof TypeMap>(
-  userMessage: Message,
   expectedType: N,
   x: any
 ): TypeMap[N] {
   const actualType = typeof x
   if (actualType === expectedType) return x
 
-  return throwBeautifulError({
+  const defaultM = {
     message: `Expected ${expectedType}, but got ${actualType}`,
     errorName: 'assert error',
     context: { x },
-  })
+  }
+
+  return throwBeautifulError(defaultM)
 }

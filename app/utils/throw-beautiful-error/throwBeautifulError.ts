@@ -25,6 +25,7 @@ export function throwBeautifulError(messageOrString: Message): never {
 
   try {
     const error = new Error(message)
+    // tslint:disable-next-line:no-object-mutation
     if (errorName) error.name = errorName
     throw error
   } finally {

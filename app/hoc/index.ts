@@ -1,1 +1,1 @@
-export * from './withData'
+export { withData } from './withData'

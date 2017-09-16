@@ -1,15 +1,15 @@
 import { ApolloClient, getDataFromTree, ApolloProvider } from 'react-apollo'
 import { Store } from 'redux'
-import { path } from 'ramda'
+import { path, compose } from 'ramda'
 
-import { invariant } from '~/utils'
+import { assertTypeof } from '~/utils/asserters-curried'
 
 export async function loadApolloData<S>(
   content: JSX.Element,
   apollo: ApolloClient,
   redux: Store<S>
 ): Promise<object> {
-  // Run all GraphQL queries
+  // Run all GraphQL queries with sideeffect
   await getDataFromTree(
     // No need to use the Redux Provider
     // because Apollo sets up the store for us
@@ -19,9 +19,10 @@ export async function loadApolloData<S>(
   )
 
   const state = redux.getState()
-  const data = path(['apollo', 'data'], state)
-  invariant(typeof data === 'object', 'apollo store must be object', {
-    state: state,
-  })
+  const data: object = compose(
+    assertTypeof('object'),
+    path(['apollo', 'data'])
+  )(state)
+
   return data
 }

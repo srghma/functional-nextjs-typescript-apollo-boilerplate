@@ -15,7 +15,7 @@ declare module 'next-extensions' {
   }
 
   interface PageProps {
-    url: Url
+    url?: Url
   }
 
   namespace nextExt {

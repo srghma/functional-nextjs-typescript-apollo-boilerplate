@@ -1,28 +1,20 @@
-import { curry } from 'ramda'
 import {
   throwBeautifulError,
-  mergeMessages,
   Message,
-} from '../throw-beautiful-error'
+  mergeMessages,
+} from '~/utils/throw-beautiful-error'
 
-type Predicate = (x: any) => boolean
+export { Message } from '~/utils/throw-beautiful-error'
 
-function assertInternal(
-  predicate: Predicate,
-  userMessage: Message,
-  x: any
-): any {
-  const output = predicate(x)
-  if (output) return x
+export function assert(x: any, userMessage: Message): any {
+  if (x) return x
 
   const defaultM = {
-    message: `Predicate returned ${output}`,
-    errorName: 'assert error',
-    context: { x },
+    message: `Got ${x}`,
+    errorName: 'Assert error',
   }
 
   const m = mergeMessages(defaultM, userMessage)
+
   return throwBeautifulError(m)
 }
-
-export const assert = curry<Predicate, Message, any, any>(assertInternal)

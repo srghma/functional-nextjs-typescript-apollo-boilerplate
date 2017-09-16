@@ -8,6 +8,7 @@
     "tslint-config-prettier"
   ],
   "rules": {
+    // style
     "trailing-comma": [
       true,
       {
@@ -33,7 +34,18 @@
     // fix warning
     "no-unused-variable": false,
 
-    // tslint-immutable rules, TODO
+    // tslint-immutable rules
+    // "readonly-keyword": true,
+    // "readonly-array": true,
+    // "no-let": true,
+    "no-object-mutation": true,
+    "no-this": true,
+    "no-class": true,
+    // "no-mixed-interface": true,
+    // "no-expression-statement": true,
+    "no-var-keyword": true,
+
+    // more typesafety
     "typedef": [
       true,
       "call-signature",
@@ -45,15 +57,10 @@
       // "arrow-call-signature",
       // "arrow-parameter",
       // "variable-declaration",
-    ],
-    // "readonly-keyword": true,
-    // "readonly-array": true,
-    // "no-let": true,
-    "no-object-mutation": true,
-    "no-this": true,
-    "no-class": true,
-    // "no-mixed-interface": true,
-    // "no-expression-statement": true,
-    "no-var-keyword": true
+    ]
+
+    // hardmode
+    // "no-unsafe-any": true
+    // "no-any": true
   }
 }
