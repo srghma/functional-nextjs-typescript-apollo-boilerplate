@@ -6,14 +6,19 @@ import { WrappedProps } from './apollo'
 
 const columns: TableColumnConfig<Post>[] = [
   {
+    title: 'N',
+    render: (_rec, _rectoo, index: number) => index + 1,
+  },
+  {
     title: 'Title',
+    dataIndex: 'title',
     render: (text: string) => <p>{text}</p>,
   },
   {
     title: 'Action',
-    render: (text: string, record: Post) => (
+    render: (record: Post) => (
       <span>
-        <a href="#">Delete {text}</a>
+        <a href="#">Delete {record.createdAt}</a>
         <span className="ant-divider" />
         <Button icon="down" size="small">
           {record.votes}
