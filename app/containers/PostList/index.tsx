@@ -1,17 +1,10 @@
 import { compose, branch, renderComponent } from 'recompose'
-import Spin from 'antd/lib/spin'
+import { prop } from 'ramda'
 
-import { withApollo, WrappedProps } from './apollo'
+import { withApollo } from './apollo'
 import { PostList } from './presentation'
 
 export default compose(
   withApollo,
-  branch(
-    ({ loading }: WrappedProps) => loading,
-    renderComponent(() => <Spin />)
-  ),
-  branch(
-    ({ allPosts }: WrappedProps) => allPosts.length === 0,
-    renderComponent(() => <p>no posts yet</p>)
-  )
+  branch(prop('error'), renderComponent(() => <p>no posts yet</p>))
 )(PostList)

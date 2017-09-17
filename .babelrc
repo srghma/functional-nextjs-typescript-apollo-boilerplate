@@ -14,6 +14,12 @@
     }],
     ["wrap-in-js", {
       "extensions": ["css$", "scss$", "less$"]
-    }]
+    }],
+    ["import", [{
+      "libraryName": "antd",
+      "libraryDirectory": "lib"
+    }]],
+    ["ramda"],
+    ["lodash", { "id": ["recompose"] }]
   ]
 }

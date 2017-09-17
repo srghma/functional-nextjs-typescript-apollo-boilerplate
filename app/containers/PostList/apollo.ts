@@ -1,17 +1,17 @@
 import { graphql, QueryProps } from 'react-apollo'
 
-import { allPostsQuery, allPostsQueryVariables } from '~/schema'
+import { AllPostsQuery } from '~/graphql'
 import { mergeProps } from '~/utils/ramda-ext'
 
-import allPostsGql from './allPosts.gql'
+import allPostsGql from './allPosts.graphql'
 
-export type Response = allPostsQuery
+export type Response = AllPostsQuery.Result
 export type WrappedProps = Response & QueryProps
 export type InputProps = {}
 
 const POSTS_PER_PAGE = 10
 
-const variables: allPostsQueryVariables = {
+const variables: AllPostsQuery.Variables = {
   skip: 0,
   first: POSTS_PER_PAGE,
 }

@@ -14,7 +14,7 @@
     },
     "lib": ["es2017", "dom", "esnext"],
     // "noEmitOnError": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true, // fix for antd
 
     /* Additional Checks */
     "noUnusedLocals": true /* Report errors on unused locals. */,

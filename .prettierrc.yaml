@@ -1,0 +1,18 @@
+# .prettierrc
+semi: false
+single-quote: true
+trailing-comma: es5
+tabWidth: 2
+overrides:
+- files:
+  - "*.ts"
+  - "*.tsx"
+  options:
+    parser: typescript
+- files:
+  - "*.json"
+  - "*.yml"
+  - "*.yaml"
+  options:
+    tabWidth: 2
+
