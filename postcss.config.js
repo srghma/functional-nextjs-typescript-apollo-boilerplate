@@ -4,10 +4,8 @@ module.exports = {
     require('postcss-easy-import')({ prefix: '_' }),
 
     // so imports are auto-prefixed too
-    require('autoprefixer')(
-      {
-        /* ...options */
-      }
-    ),
+    require('autoprefixer')({
+      /* ...options */
+    }),
   ],
 }

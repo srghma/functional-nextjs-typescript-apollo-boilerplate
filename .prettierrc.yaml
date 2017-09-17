@@ -1,9 +1,14 @@
-# .prettierrc
+---
 semi: false
 single-quote: true
 trailing-comma: es5
 tabWidth: 2
 overrides:
+- files:
+  - "*.js"
+  - "*.jsx"
+  options:
+    parser: babylon
 - files:
   - "*.ts"
   - "*.tsx"
@@ -14,5 +19,9 @@ overrides:
   - "*.yml"
   - "*.yaml"
   options:
-    tabWidth: 2
-
+    parser: json
+- files:
+  - "*.gql"
+  - "*.graphql"
+  options:
+    parser: graphql

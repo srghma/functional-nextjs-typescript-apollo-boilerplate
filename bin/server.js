@@ -12,8 +12,7 @@ const app = next({
 const handle = app.getRequestHandler()
 const paths = require('./paths')
 
-app.prepare()
-.then(() => {
+app.prepare().then(() => {
   const server = express()
   server.use(express.static(paths.inBuildDir('static')))
 
@@ -21,9 +20,8 @@ app.prepare()
     return handle(req, res)
   })
 
-  server.listen(port, (err) => {
+  server.listen(port, err => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
 })
-

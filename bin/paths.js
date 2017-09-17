@@ -2,10 +2,10 @@ const path = require('path')
 
 const inDir = someDir => pathToFile => path.join(someDir, pathToFile)
 
-const rootDir    = path.resolve(__dirname, '..')
+const rootDir = path.resolve(__dirname, '..')
 const dotNextDir = path.resolve(rootDir, 'build/.next')
-const appDir     = path.resolve(rootDir, 'app')
-const buildDir   = path.resolve(rootDir, 'build')
+const appDir = path.resolve(rootDir, 'app')
+const buildDir = path.resolve(rootDir, 'build')
 
 module.exports = {
   rootDir,
