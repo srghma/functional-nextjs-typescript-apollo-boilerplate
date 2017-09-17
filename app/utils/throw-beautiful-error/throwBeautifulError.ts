@@ -8,18 +8,18 @@ export interface MessageObj {
 
 export type Message = string | MessageObj
 
-export function convertToMessage(m: Message): MessageObj {
+export function convertToMessageObj(m: Message): MessageObj {
   return typeof m === 'string' ? { message: m } : m
 }
 
-export function mergeMessages(...messages: Message[]): MessageObj {
-  const run = compose(mergeAll, map(convertToMessage))
+export function mergeAllMessages(messages: Message[]): MessageObj {
+  const run = compose(mergeAll, map(convertToMessageObj))
 
   return run(messages) as MessageObj
 }
 
 export function throwBeautifulError(messageOrString: Message): never {
-  const m = convertToMessage(messageOrString)
+  const m = convertToMessageObj(messageOrString)
 
   const { message, errorName, context } = m
 

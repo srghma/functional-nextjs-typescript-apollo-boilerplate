@@ -1,15 +1,12 @@
-import {
-  ApolloClient,
-  createNetworkInterface,
-  MiddlewareInterface,
-} from 'react-apollo'
+import { ApolloClient, createNetworkInterface } from 'react-apollo'
+import { MiddlewareInterface, MiddlewareRequest } from 'apollo-client-fix'
 import { once } from 'ramda'
 
 import '../utils/fetch-polyfill'
 
 const loggerMiddleware: MiddlewareInterface = {
-  applyMiddleware(req, next) {
-    console.log('')
+  applyMiddleware(_req: MiddlewareRequest, next: Function): void {
+    console.log('apollo requested something')
     next()
   },
 }

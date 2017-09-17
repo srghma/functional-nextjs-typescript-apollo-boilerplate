@@ -1,3 +1,3 @@
 export * from './assert'
-export * from './assertNonNull'
+export * from './assertNotNil'
 export * from './assertTypeof'

@@ -1,20 +1,27 @@
+import { curry } from 'ramda'
+
 import {
   throwBeautifulError,
   Message,
-  mergeMessages,
+  mergeAllMessages,
 } from '~/utils/throw-beautiful-error'
 
 export { Message } from '~/utils/throw-beautiful-error'
 
-export function assert(x: any, userMessage: Message): any {
-  if (x) return x
+type TestFn = (x: any) => any
+
+export const assert = curry<TestFn, Message, any, any>(function(
+  test: TestFn,
+  userM: Message,
+  x: any
+): any {
+  if (test(x)) return x
 
   const defaultM = {
-    message: `Got ${x}`,
+    message: `Got unexpected ${x}`,
     errorName: 'Assert error',
   }
 
-  const m = mergeMessages(defaultM, userMessage)
-
+  const m = mergeAllMessages([defaultM, userM])
   return throwBeautifulError(m)
-}
+})

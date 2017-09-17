@@ -1,27 +1,27 @@
+import { curry } from 'ramda'
+
 import { throwBeautifulError } from '~/utils/throw-beautiful-error'
 
-interface TypeMap {
-  string: string
-  number: number
-  boolean: boolean
-  symbol: Symbol
-  undefined: undefined
-  object: object
-  function: Function
-}
+type TypeLiteral =
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'symbol'
+  | 'undefined'
+  | 'object'
+  | 'function'
 
-export function assertTypeof<N extends keyof TypeMap>(
-  expectedType: N,
+export const assertTypeof = curry<TypeLiteral, any, any>(function(
+  expectedType: TypeLiteral,
   x: any
-): TypeMap[N] {
+): any {
   const actualType = typeof x
   if (actualType === expectedType) return x
 
-  const defaultM = {
-    message: `Expected ${expectedType}, but got ${actualType}`,
-    errorName: 'assert error',
-    context: { x },
+  const message = {
+    message: `Expected ${x} to have type ${expectedType}, but got ${actualType}`,
+    errorName: 'Assert type error',
   }
 
-  return throwBeautifulError(defaultM)
-}
+  return throwBeautifulError(message)
+})

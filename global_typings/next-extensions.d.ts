@@ -30,9 +30,11 @@ declare module 'next-extensions' {
       jsonPageRes?: Response // client only
     }
 
+    type GetInitialPropsFunction = (ctx: Context) => Promise<object>
+
     // page
     interface Page<P = {}> extends React.StatelessComponent<P & PageProps> {
-      getInitialProps?: (ctx: Context) => Promise<object>
+      getInitialProps?: GetInitialPropsFunction
     }
   }
 

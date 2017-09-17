@@ -2,7 +2,7 @@ import { ApolloClient, getDataFromTree, ApolloProvider } from 'react-apollo'
 import { Store } from 'redux'
 import { path, compose } from 'ramda'
 
-import { assertTypeof } from '~/utils/asserters-curried'
+import { assertTypeof } from '~/utils/asserters'
 
 export async function loadApolloData<S>(
   content: JSX.Element,
