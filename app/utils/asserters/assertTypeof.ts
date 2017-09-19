@@ -1,6 +1,6 @@
 import { curry } from 'ramda'
 
-import { throwBeautifulError } from '~/utils/throw-beautiful-error'
+import { throwBeautifulError } from './throwBeautifulError'
 
 type TypeLiteral =
   | 'string'

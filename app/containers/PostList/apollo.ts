@@ -1,7 +1,7 @@
 import { graphql, QueryProps } from 'react-apollo'
 
 import { AllPostsQuery } from '~/graphql'
-import { mergeProps } from '~/utils/ramda-ext'
+import { mergeAllProps } from '~/utils/ramda-ext'
 
 import allPostsGql from './allPosts.graphql'
 
@@ -18,7 +18,7 @@ const variables: AllPostsQuery.Variables = {
 
 const withData = graphql<Response, InputProps, WrappedProps>(allPostsGql, {
   options: { variables },
-  props: mergeProps(['data']),
+  props: mergeAllProps(['data']),
 })
 
 export const withApollo = withData

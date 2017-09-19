@@ -32,11 +32,14 @@ export const PostList: React.StatelessComponent<WrappedProps> = ({
   allPosts,
   _allPostsMeta,
   loading,
-}) => (
-  <Table
-    columns={columns}
-    dataSource={allPosts}
-    rowKey="id"
-    loading={loading}
-  />
-)
+}) => {
+  console.log(allPosts)
+  return (
+    <Table
+      columns={columns}
+      dataSource={allPosts}
+      rowKey="id"
+      loading={loading}
+    />
+  )
+}

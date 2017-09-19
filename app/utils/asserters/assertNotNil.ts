@@ -1,4 +1,4 @@
-import { throwBeautifulError } from '~/utils/throw-beautiful-error'
+import { throwBeautifulError } from './throwBeautifulError'
 
 export function assertNotNil<X>(x: X | null | undefined): X | never {
   if (x !== null && x !== undefined && !isNaN(x as any)) return x

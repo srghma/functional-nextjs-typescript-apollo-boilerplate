@@ -2,8 +2,11 @@ import * as React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { identity } from 'ramda'
 import { Page } from 'next-extensions'
+
+import { initApollo } from './initApollo'
+import { initRedux } from './initRedux'
+
 import { assert } from '~/utils/asserters'
-import { initApollo, initRedux } from './initializers'
 
 interface WithDataProps {
   apolloData: object | null

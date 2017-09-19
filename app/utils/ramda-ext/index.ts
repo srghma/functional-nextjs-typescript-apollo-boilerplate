@@ -1,2 +1,2 @@
-export * from './mergeProps'
+export * from './mergeAllProps'
 export * from './trace'

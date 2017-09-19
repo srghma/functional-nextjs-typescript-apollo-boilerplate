@@ -2,11 +2,12 @@ import Head from 'next/head'
 import { pick } from 'ramda'
 import { Page, Context } from 'next-extensions'
 
-import { initApollo, initRedux } from './initializers'
+import { initApollo } from '../initApollo'
+import { initRedux } from '../initRedux'
 
-import { loadApolloData } from './utils/loadApolloData'
-import { loadGetInitialProps } from './utils/loadGetInitialProps'
-import { responceFinished } from './utils/responceFinished'
+import { loadApolloData } from './loadApolloData'
+import { loadGetInitialProps } from './loadGetInitialProps'
+import { responceFinished } from './responceFinished'
 
 export const getInitialPropsFor = (Component: Page) => async (ctx: Context) => {
   console.log(`getInitialProps, browser=${process.browser}`)

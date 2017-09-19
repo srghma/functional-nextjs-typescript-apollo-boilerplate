@@ -4,9 +4,9 @@ import {
   throwBeautifulError,
   Message,
   mergeAllMessages,
-} from '~/utils/throw-beautiful-error'
+} from './throwBeautifulError'
 
-export { Message } from '~/utils/throw-beautiful-error'
+export { Message } from './throwBeautifulError'
 
 type TestFn = (x: any) => any
 

@@ -1,4 +1,5 @@
 app/graphql.ts
+schema.graphql
 schema.json
 package.json
 node_modules
