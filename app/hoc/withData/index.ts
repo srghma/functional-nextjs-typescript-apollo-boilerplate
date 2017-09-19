@@ -1,14 +1,14 @@
-import { compose, wrapDisplayName, setDisplayName } from 'recompose'
+import { compose, setDisplayName } from 'recompose'
 import { Page } from 'next-extensions'
 
-import { setGetInitialProps } from '~/utils/recompose-ext'
+import { setGetInitialProps, wrapDisplayName } from '~/utils/recompose-ext'
 import { getInitialPropsFor } from './getInitialPropsFor'
 import { WithDataHoc, WithDataHocType } from './presentation'
 
 const withData: WithDataHocType = (Component: Page) => {
   const wrapped = WithDataHoc(Component)
   const getInitialProps = getInitialPropsFor(Component)
-  const displayName = wrapDisplayName(Component, 'WithData')
+  const displayName = wrapDisplayName('WithData', Component)
 
   const enhance: any = compose(
     setGetInitialProps(getInitialProps),
