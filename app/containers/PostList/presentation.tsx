@@ -7,7 +7,8 @@ import { WrappedProps } from './apollo'
 const columns: TableColumnConfig<Post>[] = [
   {
     title: 'N',
-    render: (_rec, _rectoo, index: number) => index + 1,
+    dataIndex: 'id',
+    render: (_, _rec, index: number) => index + 1,
   },
   {
     title: 'Title',
@@ -33,11 +34,15 @@ export const PostList: React.StatelessComponent<WrappedProps> = ({
   _allPostsMeta,
   loading,
 }) => {
-  console.log(allPosts)
+  const pagination = {
+    defaultCurrent: 1,
+    total: _allPostsMeta.count,
+  }
   return (
     <Table
       columns={columns}
       dataSource={allPosts}
+      pagination={pagination}
       rowKey="id"
       loading={loading}
     />

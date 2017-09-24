@@ -9,17 +9,35 @@
       "preprocess": false
     }],
     "inline-import-graphql-ast",
-    ["root-import", {
-      "rootPathSuffix": "./build"
-    }],
     ["wrap-in-js", {
       "extensions": ["css$", "scss$", "less$"]
     }],
-    ["import", [{
-      "libraryName": "antd",
-      "libraryDirectory": "lib"
-    }]],
-    ["ramda"],
-    ["lodash", { "id": ["recompose"] }]
+    ["root-import", {
+      "rootPathSuffix": "./build"
+    }],
+    ["transform-imports", {
+      "antd": {
+        "transform": "antd/lib/${member}",
+        "preventFullImport": true,
+        "camelCase": true
+      },
+      "ramda": {
+        "transform": "ramda/src/${member}",
+        "preventFullImport": true
+      },
+      "recompose": {
+        "transform": "recompose/${member}",
+        "preventFullImport": true
+      },
+      "ramda-asserters": {
+        "transform": "ramda-asserters/lib/${member}",
+        "preventFullImport": true,
+        "skipDefaultConversion": true
+      }
+    }],
+    ["module-alias", [
+      { "src": "./build/util_modules/recompose-ext", "expose": "recompose-ext" },
+      { "src": "./build/util_modules/ramda-ext", "expose": "ramda-ext" }
+    ]]
   ]
 }

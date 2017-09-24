@@ -6,9 +6,9 @@ import { curry, props, mergeAll } from 'ramda'
  * example:
  * // this statements are equal
  * let propsCopy = { ...obj.foo, ...obj.bar }
- * let propsCopy = mergeAllProps(['foo', 'bar'], obj)
+ * let propsCopy = flattenProps(['foo', 'bar'], obj)
  */
-export const mergeAllProps = curry<string[], object, object>(function(
+export const flattenProps = curry<string[], object, object>(function(
   propNames: string[],
   x: object
 ): object {

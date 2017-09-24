@@ -10,7 +10,9 @@
     "outDir": "./build",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "ramda-ext": ["./app/util_modules/ramda-ext"],
+      "recompose-ext": ["./app/util_modules/recompose-ext"]
     },
     "lib": ["es2017", "dom", "esnext"],
     // "noEmitOnError": true,
@@ -30,9 +32,5 @@
     // "experimentalDecorators": true,  /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,   /* Enables experimental support for emitting type metadata for decorators. */
   },
-  "include": [
-    "app/**/*",
-    "global_typings/**/*",
-    "node_modules/grommet-typescript/grommet/index.d.ts"
-  ]
+  "include": ["app/**/*", "global_typings/**/*"]
 }
