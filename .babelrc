@@ -29,6 +29,10 @@
         "transform": "recompose/${member}",
         "preventFullImport": true
       },
+      "ramda-adjunct": {
+        "transform": "ramda-adjunct/lib/${member}",
+        "preventFullImport": true
+      },
       "ramda-asserters": {
         "transform": "ramda-asserters/lib/${member}",
         "preventFullImport": true,

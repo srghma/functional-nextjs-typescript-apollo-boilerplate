@@ -6965,9 +6965,13 @@ querystringify@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
 
-"ramda-adjunct@https://github.com/char0n/ramda-adjunct":
+ramda-adjunct@^1.17.0:
   version "1.17.0"
-  resolved "https://github.com/char0n/ramda-adjunct#7b8b765247f19d87318920ee284760f9bb832546"
+  resolved "https://registry.yarnpkg.com/ramda-adjunct/-/ramda-adjunct-1.17.0.tgz#0a271cbce137c8cc56663725a9083543b3c0f7b9"
+
+ramda-asserters@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/ramda-asserters/-/ramda-asserters-0.0.4.tgz#b3467cbd34846655952471dc4031a79d0e3b6df4"
 
 ramda@^0.23.0:
   version "0.23.0"
