@@ -35,8 +35,7 @@
       },
       "ramda-asserters": {
         "transform": "ramda-asserters/lib/${member}",
-        "preventFullImport": true,
-        "skipDefaultConversion": true
+        "preventFullImport": true
       }
     }],
     ["module-alias", [

@@ -8,7 +8,7 @@ import { initApollo } from './initApollo'
 import { initRedux } from './initRedux'
 
 interface WithDataProps {
-  apolloData: object | null
+  apolloData: object | undefined
 }
 
 export type WithDataPage = Page<WithDataProps>
@@ -21,15 +21,17 @@ export const WithDataHoc: WithDataHocType = Component => ({
   apolloData,
   ...props,
 }) => {
-  const validateNotNull = assert(
+  const apollo = initApollo()
+
+  assert(
     identity,
     `apolloData is ${apolloData},
     probably getInitialProps wasn't executed,
-    assure that withData is the outermost wrapper for your Page`
+    assure that withData is the outermost wrapper for your Page`,
+    apolloData
   )
 
-  const apollo = initApollo()
-  const redux = initRedux(apollo, validateNotNull(apolloData))
+  const redux = initRedux(apollo, apolloData as object)
 
   return (
     // No need to use the Redux Provider

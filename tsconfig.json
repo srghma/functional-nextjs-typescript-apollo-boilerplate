@@ -11,8 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "ramda-ext": ["./app/util_modules/ramda-ext"],
-      "recompose-ext": ["./app/util_modules/recompose-ext"]
+      "recompose-ext": ["./app/utils/recompose-ext"]
     },
     "lib": ["es2017", "dom", "esnext"],
     // "noEmitOnError": true,
@@ -32,5 +31,5 @@
     // "experimentalDecorators": true,  /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,   /* Enables experimental support for emitting type metadata for decorators. */
   },
-  "include": ["app/**/*", "global_typings/**/*"]
+  "include": ["app/**/*"]
 }
