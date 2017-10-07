@@ -10,8 +10,6 @@ import { loadGetInitialProps } from './loadGetInitialProps'
 import { responceFinished } from './responceFinished'
 
 export const getInitialPropsFor = (Component: Page) => async (ctx: Context) => {
-  console.log(`getInitialProps, browser=${process.browser}`)
-
   // Evaluate the composed component's getInitialProps()
   const componentInitialProps = await loadGetInitialProps(Component, ctx)
 

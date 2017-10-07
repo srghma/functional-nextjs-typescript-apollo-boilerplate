@@ -69,6 +69,7 @@
     "autoprefixer": "^7.1.4",
     "babel-plugin-inline-import-graphql-ast": "^2.0.0",
     "babel-plugin-module-alias": "^1.6.0",
+    "babel-plugin-ramda": "^1.4.3",
     "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-styled-components": "^1.2.0",
     "babel-plugin-transform-imports": "^1.4.1",

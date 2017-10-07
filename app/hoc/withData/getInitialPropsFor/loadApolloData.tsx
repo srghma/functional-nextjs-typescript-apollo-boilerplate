@@ -1,7 +1,6 @@
+import R from 'ramda'
 import { ApolloClient, getDataFromTree, ApolloProvider } from 'react-apollo'
 import { Store } from 'redux'
-import { path, compose } from 'ramda'
-
 import { assertType } from 'ramda-asserters'
 
 export async function loadApolloData<S>(
@@ -19,7 +18,9 @@ export async function loadApolloData<S>(
   )
 
   const state = redux.getState()
-  const data = compose(assertType('Object'), path(['apollo', 'data']))(state)
+  const data = R.compose(assertType('Object'), R.path(['apollo', 'data']))(
+    state
+  )
 
   return data
 }

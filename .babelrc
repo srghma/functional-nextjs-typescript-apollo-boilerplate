@@ -21,10 +21,6 @@
         "preventFullImport": true,
         "camelCase": true
       },
-      "ramda": {
-        "transform": "ramda/src/${member}",
-        "preventFullImport": true
-      },
       "recompose": {
         "transform": "recompose/${member}",
         "preventFullImport": true
@@ -39,8 +35,8 @@
       }
     }],
     ["module-alias", [
-      { "src": "./build/util_modules/recompose-ext", "expose": "recompose-ext" },
-      { "src": "./build/util_modules/ramda-ext", "expose": "ramda-ext" }
-    ]]
+      { "src": "./build/utils/recompose-ext", "expose": "recompose-ext" },
+    ]],
+    ["ramda"]
   ]
 }
