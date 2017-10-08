@@ -29,11 +29,10 @@ const columns: TableColumnConfig<Post>[] = [
   },
 ]
 
-export const PostList: React.StatelessComponent<WrappedProps> = ({
-  allPosts,
-  _allPostsMeta,
-  loading,
-}) => {
+export const PostList: React.StatelessComponent<WrappedProps> = props => {
+  console.log('pr', props)
+  const { data, loadMorePosts } = props
+  const { allPosts, _allPostsMeta, loading } = data
   const pagination = {
     defaultCurrent: 1,
     total: _allPostsMeta.count,
@@ -45,6 +44,7 @@ export const PostList: React.StatelessComponent<WrappedProps> = ({
       pagination={pagination}
       rowKey="id"
       loading={loading}
+      onChange={loadMorePosts}
     />
   )
 }

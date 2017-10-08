@@ -21,22 +21,20 @@
         "preventFullImport": true,
         "camelCase": true
       },
-      "recompose": {
-        "transform": "recompose/${member}",
-        "preventFullImport": true
-      },
-      "ramda-adjunct": {
-        "transform": "ramda-adjunct/lib/${member}",
-        "preventFullImport": true
-      },
       "ramda-asserters": {
         "transform": "ramda-asserters/lib/${member}",
         "preventFullImport": true
       }
     }],
-    ["module-alias", [
-      { "src": "./build/utils/recompose-ext", "expose": "recompose-ext" },
-    ]],
-    ["ramda"]
+    ["module-resolver", {
+      "alias": {
+        "recompose-ext": "./build/utils/recompose-ext",
+        "ramda-ext": "./build/utils/ramda-ext"
+      }
+    }],
+    ["ramda"],
+    ["lodash", {
+      "id": ["ramda-adjunct", "recompose"]
+    }]
   ]
 }

@@ -1,4 +1,4 @@
-import R from 'ramda'
+import * as R from 'ramda'
 import { ApolloClient, getDataFromTree, ApolloProvider } from 'react-apollo'
 import { Store } from 'redux'
 import { assertType } from 'ramda-asserters'

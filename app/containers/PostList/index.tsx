@@ -1,10 +1,14 @@
-import { compose, branch, renderComponent } from 'recompose'
-import { prop } from 'ramda'
+import * as RE from 'recompose'
+import * as RA from 'ramda-adjunct'
+import * as R from 'ramda'
 
-import { withApollo } from './apollo'
+import { withApollo, WrappedProps } from './apollo'
 import { PostList } from './presentation'
 
-export default compose(
+export default R.compose(
   withApollo,
-  branch(prop('error'), renderComponent(() => <p>no posts yet</p>))
+  RE.branch(
+    R.path(['data', 'error']),
+    RE.renderComponent(() => <p>no posts yet</p>)
+  )
 )(PostList)

@@ -11,7 +11,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "recompose-ext": ["./app/utils/recompose-ext"]
+      "recompose-ext": ["./app/utils/recompose-ext"],
+      "ramda-ext": ["./app/utils/ramda-ext"]
     },
     "lib": ["es2017", "dom", "esnext"],
     // "noEmitOnError": true,

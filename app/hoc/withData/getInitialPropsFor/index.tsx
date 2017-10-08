@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { pick } from 'ramda'
+import * as R from 'ramda'
 import { Page, Context } from 'next-extensions'
 
 import { initApollo } from '../initApollo'
@@ -27,7 +27,7 @@ export const getInitialPropsFor = (Component: Page) => async (ctx: Context) => {
     const redux = initRedux(apollo)
 
     // Provide the `url` prop data in case a GraphQL query uses it
-    const url = pick(['query', 'pathname'], ctx)
+    const url = R.pick(['query', 'pathname'], ctx)
     const content = <Component url={url} {...componentInitialProps} />
     apolloData = await loadApolloData(content, apollo, redux)
     Head.rewind()
