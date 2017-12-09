@@ -85,7 +85,7 @@
     "express": "^4.15.4",
     "file-loader": "^0.11.2",
     "glob": "^7.1.2",
-    "graphql-cli": "^1.0.1",
+    "graphql-cli": "^2.0.9",
     "graphql-cli-voyager": "^0.1.2",
     "graphql-code-generator": "^0.8.10",
     "husky": "^0.14.3",
