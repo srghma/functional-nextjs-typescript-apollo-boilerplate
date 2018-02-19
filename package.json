@@ -83,7 +83,7 @@
     "cross-env": "^5.0.5",
     "enzyme": "^2.9.1",
     "express": "^4.15.4",
-    "file-loader": "^0.11.2",
+    "file-loader": "^1.1.7",
     "glob": "^7.1.2",
     "graphql-cli": "^1.0.1",
     "graphql-cli-voyager": "^0.1.2",
