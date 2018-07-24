@@ -63,7 +63,7 @@
     "@types/next": "^2.4.2",
     "@types/ramda": "https://github.com/types/npm-ramda#dist",
     "@types/react": "^16.0.5",
-    "@types/react-redux": "^5.0.6",
+    "@types/react-redux": "^6.0.5",
     "@types/recompose": "^0.24.1",
     "apollo-codegen": "^0.18.0",
     "autoprefixer": "^7.1.4",
