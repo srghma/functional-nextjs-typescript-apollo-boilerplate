@@ -48,7 +48,7 @@
     "ramda-universal-trace": "^0.0.2",
     "react": "^16.7.0",
     "react-apollo": "^1.4.15",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.7.0",
     "react-redux": "^5.0.6",
     "recompose": "^0.25.0",
     "redux": "^3.7.2",
