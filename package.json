@@ -46,7 +46,7 @@
     "ramda-adjunct": "^1.17.0",
     "ramda-asserters": "^0.0.11",
     "ramda-universal-trace": "^0.0.2",
-    "react": "^15.6.1",
+    "react": "^16.7.0",
     "react-apollo": "^1.4.15",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
