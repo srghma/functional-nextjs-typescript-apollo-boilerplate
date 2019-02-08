@@ -95,7 +95,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lint-staged": "^4.2.1",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.18.10",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.0.6",
     "prettier": "^1.7.0",
