@@ -58,7 +58,7 @@
     "typescript-fsa-reducers": "^0.4.4"
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "^0.0.34",
+    "@types/isomorphic-fetch": "^0.0.35",
     "@types/js-cookie": "^2.1.0",
     "@types/next": "^2.4.2",
     "@types/ramda": "https://github.com/types/npm-ramda#dist",
