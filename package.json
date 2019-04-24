@@ -60,7 +60,7 @@
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.34",
     "@types/js-cookie": "^2.1.0",
-    "@types/next": "^2.4.2",
+    "@types/next": "^8.0.4",
     "@types/ramda": "https://github.com/types/npm-ramda#dist",
     "@types/react": "^16.0.5",
     "@types/react-redux": "^5.0.6",
