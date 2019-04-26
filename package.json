@@ -75,7 +75,7 @@
     "babel-plugin-styled-components": "^1.2.0",
     "babel-plugin-transform-imports": "^1.4.1",
     "babel-plugin-wrap-in-js": "^1.1.1",
-    "body-parser": "^1.18.1",
+    "body-parser": "^1.19.0",
     "chokidar": "^1.7.0",
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.5.0",
