@@ -41,7 +41,7 @@
     "next": "^4.0.0",
     "next-routes": "^1.0.40",
     "preact": "^8.2.5",
-    "preact-compat": "^3.17.0",
+    "preact-compat": "^3.19.0",
     "ramda": "^0.24.1",
     "ramda-adjunct": "^1.17.0",
     "ramda-asserters": "^0.0.11",
