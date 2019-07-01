@@ -73,7 +73,7 @@
     "babel-plugin-ramda": "^1.4.3",
     "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-styled-components": "^1.2.0",
-    "babel-plugin-transform-imports": "^1.4.1",
+    "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-wrap-in-js": "^1.1.1",
     "body-parser": "^1.18.1",
     "chokidar": "^1.7.0",
