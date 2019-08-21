@@ -92,7 +92,7 @@
     "image-webpack-loader": "^3.4.1",
     "jest": "^21.1.0",
     "jest-cli": "^21.1.0",
-    "less": "^2.7.2",
+    "less": "^3.10.2",
     "less-loader": "^4.0.5",
     "lint-staged": "^4.2.1",
     "nodemon": "^1.12.1",
